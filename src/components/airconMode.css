@@ -1,0 +1,19 @@
+.aircon-mode {
+  display: flex;
+  gap: 8px;
+}
+
+.aircon-mode .mode {
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: var(--display-bg-color);
+  background: var(--display-text-color);
+}
+
+.aircon-mode .mode.mode-on {
+  opacity: 1;
+}
+
+.aircon-mode .mode.mode-off {
+  opacity: 0.1;
+}

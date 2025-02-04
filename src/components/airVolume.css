@@ -1,0 +1,37 @@
+.air-volume {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 32px;
+  height: 32px;
+}
+
+.air-volume .bar {
+  width: var(--bar-width, 4px);
+  background: var(--display-text-color);
+  transition: background-color 0.3s ease;
+}
+
+.air-volume .bar.bar-1 {
+  height: 20%;
+}
+
+.air-volume .bar.bar-2 {
+  height: 40%;
+}
+
+.air-volume .bar.bar-3 {
+  height: 60%;
+}
+
+.air-volume .bar.bar-4 {
+  height: 80%;
+}
+
+.air-volume .bar.bar-5 {
+  height: 100%;
+}
+
+.air-volume .bar:not(.active) {
+  opacity: 0.1;
+}

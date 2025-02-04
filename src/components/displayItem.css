@@ -1,0 +1,12 @@
+.display-item {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.display-item h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--display-text-color);
+}

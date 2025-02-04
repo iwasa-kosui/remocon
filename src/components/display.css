@@ -1,0 +1,29 @@
+.display {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  background: var(--display-bg-color);
+  padding: 16px;
+  border: 4px solid var(--display-disabled-color);
+  border-radius: 8px;
+  min-width: 400px;
+}
+
+@media screen and (min-width: 600px) {
+  .display {
+    scale: 2;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .display {
+    scale: 3;
+  }
+}
+
+.display button {
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: var(--display-bg-color);
+  background: var(--display-text-color);
+}

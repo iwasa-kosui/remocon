@@ -1,0 +1,28 @@
+{
+  "name": "remocon",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "react-server ./src/App.tsx"
+  },
+  "dependencies": {
+    "@lazarv/react-server": "0.0.0-experimental-9ed2d6f-20250125-9716750b",
+    "neverthrow": "^8.1.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/node": "22.13.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0",
+    "prettier": "3.4.2",
+    "vite": "^6.0.5"
+  }
+}

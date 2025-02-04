@@ -1,0 +1,94 @@
+.seven-segment-display {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+}
+
+.seven-segment-display .digit {
+  /* デフォルト値（必要に応じて上書き可能） */
+  --seg-width: 40px;
+  --seg-height: 64px;
+  --seg-thickness: 6px;
+  --seg-length: calc(var(--seg-width) - 2 * var(--seg-thickness));
+  --seg-vertical-length: calc(
+    (var(--seg-height) - 3 * var(--seg-thickness)) / 2
+  );
+
+  position: relative;
+  width: var(--seg-width);
+  height: var(--seg-height);
+}
+
+/* 共通のセグメントスタイル */
+.segment {
+  position: absolute;
+  transition: opacity 0.2s ease;
+  border-radius: var(--seg-thickness);
+  background: var(--display-text-color);
+}
+
+.segment.on {
+  opacity: 1;
+}
+
+.segment.off {
+  opacity: 0.1;
+}
+
+/* 各セグメントの配置（CSS変数を使用） */
+
+/* セグメント A: 上部水平 */
+.segment-a {
+  top: 0;
+  left: var(--seg-thickness);
+  width: var(--seg-length);
+  height: var(--seg-thickness);
+}
+
+/* セグメント D: 下部水平 */
+.segment-d {
+  bottom: 0;
+  left: var(--seg-thickness);
+  width: var(--seg-length);
+  height: var(--seg-thickness);
+}
+
+/* セグメント G: 中央水平 */
+.segment-g {
+  top: calc(var(--seg-thickness) + var(--seg-vertical-length));
+  left: var(--seg-thickness);
+  width: var(--seg-length);
+  height: var(--seg-thickness);
+}
+
+/* セグメント B: 右上垂直 */
+.segment-b {
+  top: var(--seg-thickness);
+  right: 0;
+  width: var(--seg-thickness);
+  height: var(--seg-vertical-length);
+}
+
+/* セグメント C: 右下垂直 */
+.segment-c {
+  bottom: var(--seg-thickness);
+  right: 0;
+  width: var(--seg-thickness);
+  height: var(--seg-vertical-length);
+}
+
+/* セグメント F: 左上垂直 */
+.segment-f {
+  top: var(--seg-thickness);
+  left: 0;
+  width: var(--seg-thickness);
+  height: var(--seg-vertical-length);
+}
+
+/* セグメント E: 左下垂直 */
+.segment-e {
+  bottom: var(--seg-thickness);
+  left: 0;
+  width: var(--seg-thickness);
+  height: var(--seg-vertical-length);
+}
