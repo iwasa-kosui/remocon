@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { assertsNever } from '../assertsNever'
 
-const schema = z.enum(['cool', 'warm', 'dry', 'auto'])
+const schema = z.enum(['cool', 'warm', 'dry', 'blow', 'auto'])
 export type AirconMode = z.infer<typeof schema>
 export const AirconMode = {
   schema,
@@ -15,6 +15,8 @@ export const AirconMode = {
         return '暖房'
       case 'dry':
         return '除湿'
+      case 'blow':
+        return '送風'
       case 'auto':
         return '自動'
       default:
