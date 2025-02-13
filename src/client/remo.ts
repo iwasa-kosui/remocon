@@ -1,8 +1,7 @@
 'use server'
-import { Appliances } from '../domain/appliance'
+import { Appliances, AirconAppliance } from '../domain/appliance'
 import type { AirconSettings } from '../domain/airconSettings'
 import type { ApplianceId } from '../domain/applianceId'
-import { AirconAppliance } from '../domain/airconAppliance'
 
 const Host = 'https://api.nature.global/1'
 
