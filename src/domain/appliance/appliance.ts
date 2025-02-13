@@ -1,8 +1,8 @@
 import { z } from 'zod'
-import { AirconAppliance } from './airconAppliance'
-import { UnknownAppliance } from './unknownAppliance'
+import { AirconAppliance } from './aircon'
+import { UnknownAppliance } from './unknown'
 
-const appliance = z.union([AirconAppliance.schema, UnknownAppliance.schema])
+const appliance = AirconAppliance.schema.or(UnknownAppliance.schema)
 export type Appliance = z.infer<typeof appliance>
 export const Appliance = {
   schema: appliance,
