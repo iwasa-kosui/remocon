@@ -19,6 +19,10 @@
   height: var(--seg-height);
 }
 
+.seven-segment-display .digit:has(.segment-dot) {
+  --seg-width: calc(var(--seg-thickness) * 2);
+}
+
 /* 共通のセグメントスタイル */
 .segment {
   position: absolute;
@@ -91,4 +95,11 @@
   left: 0;
   width: var(--seg-thickness);
   height: var(--seg-vertical-length);
+}
+
+.segment-dot {
+  bottom: 0;
+  left: var(--seg-thickness);
+  width: var(--seg-thickness);
+  height: var(--seg-thickness);
 }

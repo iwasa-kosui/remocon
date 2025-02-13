@@ -1,8 +1,23 @@
 import React from 'react'
 import './sevenSegmentDisplay.css'
+import { z } from 'zod'
 
-type Digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
-type Segment = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g'
+const digitSchema = z.enum([
+  '0',
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '.',
+])
+export type Digit = z.infer<typeof digitSchema>
+
+type Segment = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'dot'
 
 const segmentMap: Record<Digit, ReadonlyArray<Segment>> = {
   '0': ['a', 'b', 'c', 'd', 'e', 'f'],
@@ -15,6 +30,7 @@ const segmentMap: Record<Digit, ReadonlyArray<Segment>> = {
   '7': ['a', 'b', 'c'],
   '8': ['a', 'b', 'c', 'd', 'e', 'f', 'g'],
   '9': ['a', 'b', 'c', 'd', 'f', 'g'],
+  '.': ['dot'],
 }
 
 type DigitProps = {
@@ -23,6 +39,16 @@ type DigitProps = {
 
 const Digit = ({ value }: DigitProps) => {
   const segmentsOn = segmentMap[value] || []
+
+  if (segmentsOn.includes('dot')) {
+    return (
+      <div className="digit">
+        <div
+          className={`segment segment-dot ${segmentsOn.includes('dot') ? 'on' : 'off'}`}
+        />
+      </div>
+    )
+  }
 
   return (
     <div className="digit">
@@ -56,14 +82,14 @@ type Props = {
 }
 
 export const SevenSegmentDisplay = ({ value }: Props) => {
-  const n = String(Math.floor(value)).padStart(2, '0')
-  const digits = Array.from(n).map((digit, d) => (
-    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-    <Digit key={d} value={digit as Digit} />
-  ))
+  const rawDigits = value.toFixed(1).padStart(2, '0')
+  const digits = z.array(digitSchema).parse(Array.from(rawDigits))
   return (
     <div className="seven-segment-display">
-      {digits}
+      <Digit value={digits[0]} />
+      <Digit value={digits[1]} />
+      <Digit value={digits[2]} />
+      <Digit value={digits[3]} />
       <span>℃</span>
     </div>
   )
